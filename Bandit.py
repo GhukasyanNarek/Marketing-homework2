@@ -86,18 +86,19 @@ class Visualization:
         ts_cum = np.cumsum(ts_rewards)
 
         plt.figure(figsize=(12, 6))
-        plt.plot(eg_cum, label="Epsilon-Greedy", linestyle='--', color='blue', alpha=0.9, linewidth=2, marker='o',
-                 markevery=2000)
-        plt.plot(ts_cum, label="Thompson Sampling", linestyle='-', color='orange', alpha=0.9, linewidth=2, marker='x',
-                 markevery=2000)
+        plt.plot(eg_cum, label="Epsilon-Greedy", linestyle='--', color='blue', alpha=0.9,
+                 linewidth=2, marker='o', markevery=2000)
+        plt.plot(ts_cum, label="Thompson Sampling", linestyle='-', color='orange', alpha=0.9,
+                 linewidth=2, marker='x', markevery=2000)
         plt.xlabel("Trials")
         plt.ylabel("Cumulative Reward")
         plt.title("Cumulative Reward Comparison")
         plt.legend()
         plt.grid(True)
         plt.tight_layout()
+        plt.savefig("plot_rewards.png", dpi = 300)
         plt.show()
-
+        
     def plot2(self, eg_regrets, ts_regrets):
         """
         Plot cumulative regret comparison between algorithms.
@@ -114,6 +115,7 @@ class Visualization:
         plt.legend()
         plt.grid(True)
         plt.tight_layout()
+        plt.savefig("plot_regrets.png", dpi=300)
         plt.show()
 
 
